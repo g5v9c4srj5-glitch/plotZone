@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PlotZone — Plotting tactique</title>
-<meta name="description" content="Outil de plotting tactique : report de points, Bull&rsquo;s Eye, conversion de coordonnées MGRS et UTM, tracé de zones et calques d&rsquo;espace aérien. Aucune donnée collectée.">
+<title>PlotZone, tactical plotting</title>
+<meta name="description" content="Tactical plotting tool: plot points, Bull&rsquo;s Eye bearings, MGRS and UTM coordinate conversion, zone drawing and airspace overlays. No data collected.">
 <style>
 * { box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -13,7 +13,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Ar
 header { border-bottom: 2px solid #7A8450; padding-bottom: 28px; margin-bottom: 44px; }
 h1 { font-size: 2.4em; letter-spacing: 4px; margin: 0 0 8px; }
 .accroche { color: #D89838; font-size: 1.15em; letter-spacing: 1px; margin: 0 0 18px; }
-.intro { color: #B8B09A; font-size: 1.05em; max-width: 620px; margin: 0; }
+.intro { color: #B8B09A; font-size: 1.05em; max-width: 620px; margin: 0 0 38px; }
 h2 { font-size: 1.05em; letter-spacing: 2px; color: #7A8450; text-transform: uppercase;
   margin-top: 52px; margin-bottom: 18px; }
 p, li { color: #B8B09A; }
@@ -35,64 +35,159 @@ a { color: #D89838; }
 footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   color: #8A8574; font-size: 0.85em; }
 .avert { color: #8A8574; font-size: 0.88em; }
+.lang { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 8px; }
+.langnav { display: flex; gap: 10px; margin: 0 0 36px; }
+.langnav a { border: 1px solid #7A8450; border-radius: 6px; padding: 9px 18px;
+  text-decoration: none; color: #D4C9A8; letter-spacing: 1px; font-size: 0.85em;
+  text-transform: uppercase; }
+.langnav a:hover { background: #7A8450; color: #0D0F0D; }
+.appstore { display: inline-block; margin-top: 22px; background: #7A8450; color: #0D0F0D;
+  text-decoration: none; padding: 13px 26px; border-radius: 8px; font-weight: 600;
+  letter-spacing: 1px; font-size: 0.95em; }
+.appstore:hover { background: #8F9A5E; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>PLOTZONE</h1>
-  <p class="accroche">Plotting tactique. Rien ne quitte votre appareil.</p>
-  <p class="intro">Reportez des points, calculez des relèvements en Bull&rsquo;s Eye, convertissez des
-  coordonnées entre cinq formats, tracez vos zones et chargez vos propres espaces aériens —
-  sur une carte satellite, sans compte et sans collecte de données.</p>
+  <p class="accroche">Tactical plotting. Nothing leaves your device.</p>
+  <p class="intro">Plot points, work out Bull&rsquo;s Eye bearings, convert coordinates between five
+  formats, draw your zones and load your own airspace files. On a satellite map, with no account
+  and no data collection.</p>
+  <a class="appstore" href="https://apps.apple.com/app/id6806763132">Download on the App Store</a>
 </header>
+
+<div class="langnav">
+  <a href="#en">🇬🇧 English</a>
+  <a href="#fr">🇫🇷 Fran&ccedil;ais</a>
+</div>
 
 <div class="ecrans">
   <figure>
-    <img src="ecran-1.jpg" alt="Carte avec la rose du Bull&rsquo;s Eye, ses anneaux gradués et les relèvements calculés">
+    <img src="ecran-1.jpg" alt="The map with the Bull&rsquo;s Eye rose, its graduated rings, an airspace grid and the computed bearings">
     <figcaption>Bull&rsquo;s Eye</figcaption>
   </figure>
   <figure>
-    <img src="ecran-2.jpg" alt="Détail d&rsquo;une mission avec ses points nommés et sa zone">
+    <img src="ecran-2.jpg" alt="A mission and its named points, each with its coordinates">
     <figcaption>Missions</figcaption>
   </figure>
   <figure>
-    <img src="ecran-3.jpg" alt="Convertisseur de coordonnées affichant les cinq formats">
-    <figcaption>Coordonnées</figcaption>
+    <img src="ecran-3.jpg" alt="The coordinate converter showing one position in all five formats">
+    <figcaption>Coordinates</figcaption>
   </figure>
 </div>
 
-<h2>Ce que fait PlotZone</h2>
+<h2 id="en">🇬🇧 What PlotZone does</h2>
 
 <div class="grille">
   <div>
     <h3>Missions</h3>
-    <p>Vos points et vos zones regroupés par opération. Nom, coordonnées, rayon en mètres,
-    pieds ou milles nautiques, couleur. Déplaçables au doigt, annulables d&rsquo;un geste.</p>
+    <p>Your points and zones, grouped by operation. Each point carries a name, its coordinates,
+    a radius in metres, feet or nautical miles, and a colour. Drag a point to move it, and one tap
+    undoes the move if you got it wrong.</p>
   </div>
   <div>
     <h3>Bull&rsquo;s Eye</h3>
-    <p>Désignez une référence : relèvement et distance de tous les autres points, rose graduée
-    tous les 10 NM jusqu&rsquo;à 120, radiales tous les 30°.</p>
+    <p>Pick one point as the reference. PlotZone then gives the bearing and distance from it to
+    every other point of the mission, and draws rings around it every 10 NM out to 120 NM, with
+    radials every 30&deg;.</p>
   </div>
   <div>
-    <h3>Coordonnées</h3>
-    <p>Degrés décimaux, degrés-minutes-secondes, degrés-minutes décimales, MGRS et UTM.
-    Dans les deux sens. Touchez la carte pour lire, touchez un résultat pour copier.</p>
+    <h3>Coordinates</h3>
+    <p>Decimal degrees, degrees-minutes-seconds, degrees-decimal-minutes, MGRS and UTM, converted
+    in either direction. Touch the map to read a position, touch a result to copy it.</p>
   </div>
   <div>
     <h3>Zones</h3>
-    <p>Tracez un polygone au doigt, ajustez chaque sommet, lisez sa surface et son périmètre
-    pendant que vous dessinez.</p>
+    <p>Type the vertices or draw the polygon with your finger, adjust each corner, watch its area
+    and perimeter as you go.</p>
   </div>
   <div>
-    <h3>Espaces aériens</h3>
-    <p>Chargez votre zone de travail depuis vos fichiers : KMZ, KML, OpenAir, GeoJSON.
-    Cartes géoréférencées ou contours. Plusieurs à la fois.</p>
+    <h3>Airspace</h3>
+    <p>Load your working area from your own files, whether they hold a georeferenced chart or plain
+    outlines. PlotZone reads KMZ, KML, OpenAir and GeoJSON, and shows several areas at once.</p>
+  </div>
+  <div>
+    <h3>GARS grid</h3>
+    <p>The GARS grid at 30&rsquo; or 15&rsquo; with its designators, laid over the base map.</p>
+  </div>
+  <div>
+    <h3>Measure</h3>
+    <p>Two taps on the map give the heading and distance between them.</p>
+  </div>
+  <div>
+    <h3>Import and export</h3>
+    <p>Export a mission to back it up or pass it on, then import it back with nothing lost.
+    Four formats: PlotZone (.json), KML, KMZ and GPX.</p>
+  </div>
+</div>
+
+<h2>Privacy</h2>
+
+<div class="confid">
+  <p><strong>PlotZone does not collect, store or transmit any personal data.</strong>
+  Your missions are saved on your device alone. Your GPS position is used only to draw you on the
+  map. It is never transmitted or shared. No account, no tracker, no analytics, no advertising.</p>
+</div>
+
+<h2>Languages</h2>
+<p>English, French, Spanish, German, Italian, Dutch, Portuguese and Chinese.</p>
+
+<h2>More</h2>
+<div class="liens">
+  <a href="support.html">Support</a>
+  <a href="privacy.html">Privacy policy</a>
+  <a href="mailto:plotzone.contact@gmail.com">Write to us</a>
+</div>
+
+<h2>Disclaimer</h2>
+<p class="avert">Coordinate conversions and distance calculations are provided for guidance.
+Always check your data against an official source before any critical use. PlotZone is not a
+certified navigation instrument.</p>
+
+<div class="lang"></div>
+
+<h2 id="fr">🇫🇷 Ce que fait PlotZone</h2>
+
+<p class="accroche">Report tactique. Rien ne quitte votre appareil.</p>
+<p class="intro">Reportez des points, calculez des rel&egrave;vements en Bull&rsquo;s Eye, convertissez des
+coordonn&eacute;es entre cinq formats, tracez vos zones et chargez vos propres espaces a&eacute;riens.
+Sur une carte satellite, sans compte et sans collecte de donn&eacute;es.</p>
+
+<div class="grille">
+  <div>
+    <h3>Missions</h3>
+    <p>Vos points et vos zones, regroup&eacute;s par op&eacute;ration. Chaque point porte un nom, ses
+    coordonn&eacute;es, un rayon en m&egrave;tres, pieds ou milles nautiques et une couleur. D&eacute;placez un point
+    au doigt, et un toucher annule le d&eacute;placement si vous vous &ecirc;tes tromp&eacute;.</p>
+  </div>
+  <div>
+    <h3>Bull&rsquo;s Eye</h3>
+    <p>D&eacute;signez un point comme r&eacute;f&eacute;rence. PlotZone donne alors le rel&egrave;vement et la distance qui
+    s&eacute;parent chaque autre point de celui-l&agrave; et trace autour de lui des anneaux tous les 10 NM
+    jusqu&rsquo;&agrave; 120 NM, avec des radiales tous les 30&deg;.</p>
+  </div>
+  <div>
+    <h3>Coordonn&eacute;es</h3>
+    <p>Degr&eacute;s d&eacute;cimaux, degr&eacute;s-minutes-secondes, degr&eacute;s-minutes d&eacute;cimales, MGRS et UTM,
+    convertis dans les deux sens. Touchez la carte pour lire une position, touchez un r&eacute;sultat
+    pour le copier.</p>
+  </div>
+  <div>
+    <h3>Zones</h3>
+    <p>Saisissez les sommets au clavier ou tracez le polygone au doigt, ajustez chaque sommet, lisez
+    sa surface et son p&eacute;rim&egrave;tre pendant que vous dessinez.</p>
+  </div>
+  <div>
+    <h3>Espaces a&eacute;riens</h3>
+    <p>Chargez votre zone de travail depuis vos propres fichiers, qu&rsquo;ils portent une carte
+    g&eacute;or&eacute;f&eacute;renc&eacute;e ou de simples contours. PlotZone lit le KMZ, le KML, l&rsquo;OpenAir et le GeoJSON
+    et affiche plusieurs espaces &agrave; la fois.</p>
   </div>
   <div>
     <h3>Quadrillage GARS</h3>
-    <p>Carroyage GARS en 30&rsquo; ou 15&rsquo; avec ses désignateurs, superposé au fond de carte.</p>
+    <p>Carroyage GARS en 30&rsquo; ou 15&rsquo; avec ses d&eacute;signateurs, superpos&eacute; au fond de carte.</p>
   </div>
   <div>
     <h3>Mesure</h3>
@@ -100,38 +195,39 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   </div>
   <div>
     <h3>Import et export</h3>
-    <p>PlotZone (.json), KML, KMZ, GPX. Rayons et couleurs survivent à l&rsquo;aller-retour.</p>
+    <p>Exportez une mission pour la sauvegarder ou la transmettre, puis r&eacute;importez-la sans rien
+    perdre. Quatre formats : PlotZone (.json), KML, KMZ et GPX.</p>
   </div>
 </div>
 
-<h2>Confidentialité</h2>
+<h2>Confidentialit&eacute;</h2>
 
 <div class="confid">
-  <p><strong>PlotZone ne collecte, ne stocke et ne transmet aucune donnée personnelle.</strong>
-  Vos missions sont enregistrées uniquement sur votre appareil. Votre position GPS ne sert
-  qu&rsquo;à l&rsquo;affichage local sur la carte : elle n&rsquo;est jamais transmise ni partagée.
-  Aucun compte, aucun traceur, aucun outil d&rsquo;analyse, aucune publicité.</p>
+  <p><strong>PlotZone ne collecte, ne stocke et ne transmet aucune donn&eacute;e personnelle.</strong>
+  Vos missions sont enregistr&eacute;es uniquement sur votre appareil. Votre position GPS ne sert
+  qu&rsquo;&agrave; l&rsquo;affichage local sur la carte : elle n&rsquo;est jamais transmise ni partag&eacute;e.
+  Aucun compte, aucun traceur, aucun outil d&rsquo;analyse, aucune publicit&eacute;.</p>
 </div>
 
 <h2>Langues</h2>
-<p>Français, anglais, espagnol, allemand, italien, néerlandais, portugais et chinois.</p>
+<p>Fran&ccedil;ais, anglais, espagnol, allemand, italien, n&eacute;erlandais, portugais et chinois.</p>
 
 <h2>En savoir plus</h2>
 <div class="liens">
   <a href="support.html">Assistance</a>
-  <a href="privacy.html">Politique de confidentialité</a>
-  <a href="mailto:plotzone.contact@gmail.com">Nous écrire</a>
+  <a href="privacy.html">Politique de confidentialit&eacute;</a>
+  <a href="mailto:plotzone.contact@gmail.com">Nous &eacute;crire</a>
 </div>
 
 <h2>Avertissement</h2>
-<p class="avert">Les conversions de coordonnées et les calculs de distance sont fournis à titre
-indicatif. Vérifiez toujours vos données auprès d&rsquo;une source officielle avant tout usage
-critique. PlotZone n&rsquo;est pas un instrument de navigation certifié.</p>
+<p class="avert">Les conversions de coordonn&eacute;es et les calculs de distance sont fournis &agrave; titre
+indicatif. V&eacute;rifiez toujours vos donn&eacute;es aupr&egrave;s d&rsquo;une source officielle avant tout usage
+critique. PlotZone n&rsquo;est pas un instrument de navigation certifi&eacute;.</p>
 
 <footer>
-  <p>PlotZone — application éditée à titre indépendant.<br>
-  Les fonds de carte sont fournis par Apple Maps.<br>
-  Contact : <a href="mailto:plotzone.contact@gmail.com">plotzone.contact@gmail.com</a></p>
+  <p>PlotZone. Independently published application.<br>
+  Map tiles are provided by Apple Maps.<br>
+  Contact: <a href="mailto:plotzone.contact@gmail.com">plotzone.contact@gmail.com</a></p>
 </footer>
 
 </body>
