@@ -36,11 +36,19 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   color: #8A8574; font-size: 0.85em; }
 .avert { color: #8A8574; font-size: 0.88em; }
 .lang { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 8px; }
-.langnav { display: flex; gap: 10px; margin: 0 0 36px; }
-.langnav a { border: 1px solid #7A8450; border-radius: 6px; padding: 9px 18px;
-  text-decoration: none; color: #D4C9A8; letter-spacing: 1px; font-size: 0.85em;
+.langnav { display: flex; gap: 12px; margin: 0 0 36px; align-items: center; }
+.langnav span { color: #8A8574; font-size: 0.78em; letter-spacing: 1.5px;
   text-transform: uppercase; }
+.langnav a { display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid #7A8450; border-radius: 6px; padding: 10px 18px;
+  background: rgba(122, 132, 80, 0.16); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  text-decoration: none; color: #D4C9A8; letter-spacing: 1px; font-size: 0.85em;
+  text-transform: uppercase; transition: background 0.15s, color 0.15s, transform 0.08s; }
+.langnav a::after { content: '\2193'; color: #D89838; font-size: 1.05em; line-height: 1; }
 .langnav a:hover { background: #7A8450; color: #0D0F0D; }
+.langnav a:hover::after { color: #0D0F0D; }
+.langnav a:active { transform: translateY(1px); }
+.langnav a:focus-visible { outline: 2px solid #D89838; outline-offset: 2px; }
 .appstore { display: inline-block; margin-top: 22px; background: #7A8450; color: #0D0F0D;
   text-decoration: none; padding: 13px 26px; border-radius: 8px; font-weight: 600;
   letter-spacing: 1px; font-size: 0.95em; }
@@ -61,8 +69,9 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
 </header>
 
 <div class="langnav">
-  <a href="#en">🇬🇧 English</a>
-  <a href="#fr">🇫🇷 Fran&ccedil;ais</a>
+  <span>Read in</span>
+  <a href="#en">English</a>
+  <a href="#fr">Fran&ccedil;ais</a>
 </div>
 
 <div class="ecrans">
@@ -80,7 +89,7 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   </figure>
 </div>
 
-<h2 id="en">🇬🇧 What PlotZone does</h2>
+<h2 id="en">What PlotZone does</h2>
 
 <div class="grille">
   <div>
@@ -182,7 +191,7 @@ certified navigation instrument.</p>
 <div class="lang"></div>
 
 <div lang="fr">
-<h2 id="fr">🇫🇷 Ce que fait PlotZone</h2>
+<h2 id="fr">Ce que fait PlotZone</h2>
 
 <p class="accroche">Reportez. Mesurez. Transmettez. Rien ne quitte votre appareil.</p>
 <p class="achat">Achat unique. Sans abonnement, sans compte, sans collecte de donn&eacute;es.</p>
