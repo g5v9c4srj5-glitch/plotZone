@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="icone.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PlotZone, tactical plotting</title>
 <meta name="description" content="Tactical plotting tool: plot points, Bull&rsquo;s Eye bearings, MGRS and UTM conversion, the MGRS and GARS grids, zone drawing and offline maps. No data collected.">
@@ -52,12 +53,16 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   letter-spacing: 1px; font-size: 0.95em; }
 .appstore:hover { background: #8F9A5E; }
 .achat { color: #8A8574; font-size: 0.9em; letter-spacing: 0.5px; margin: 14px 0 0; }
+.titre { display: flex; align-items: center; gap: 16px; }
+.titre img { width: 52px; height: 52px; border-radius: 11px; flex: none; }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>PLOTZONE</h1>
+<header id="en">
+  <div class="titre"><img src="icone.png" alt="">
+    <h1>PLOTZONE</h1>
+  </div>
   <p class="accroche">Tactical plotting. Nothing leaves your device.</p>
   <p class="intro">Plot points, work out Bull&rsquo;s Eye bearings, convert coordinates between five
   formats, draw your zones, read the MGRS and GARS grids, and load your own airspace files and
@@ -87,7 +92,7 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   </figure>
 </div>
 
-<h2 id="en">What PlotZone does</h2>
+<h2>What PlotZone does</h2>
 
 <div class="grille">
   <div>
@@ -170,15 +175,20 @@ certified navigation instrument.</p>
 <div class="lang"></div>
 
 <div lang="fr">
-<h2 id="fr">Ce que fait PlotZone</h2>
-
-<p class="accroche">Reportez. Mesurez. Transmettez. Rien ne quitte votre appareil.</p>
-<p class="intro">Reportez des points, calculez des rel&egrave;vements en Bull&rsquo;s Eye, convertissez des
+<header id="fr">
+  <div class="titre"><img src="icone.png" alt="">
+    <h1>PLOTZONE</h1>
+  </div>
+  <p class="accroche">Reportez. Mesurez. Transmettez. Rien ne quitte votre appareil.</p>
+  <p class="intro">Reportez des points, calculez des rel&egrave;vements en Bull&rsquo;s Eye, convertissez des
 coordonn&eacute;es entre cinq formats, tracez vos zones, lisez les carroyages MGRS et GARS, chargez
 vos propres espaces a&eacute;riens et vos cartes hors ligne, le tout sur une carte satellite, ou sur la
 v&ocirc;tre, sans compte et sans collecte de donn&eacute;es.</p>
-<a class="appstore" href="https://apps.apple.com/app/id6806763132">T&eacute;l&eacute;charger sur l&rsquo;App Store</a>
-<p class="achat">Achat unique. Sans abonnement, sans compte, sans collecte de donn&eacute;es.</p>
+  <a class="appstore" href="https://apps.apple.com/app/id6806763132">T&eacute;l&eacute;charger sur l&rsquo;App Store</a>
+  <p class="achat">Achat unique. Sans abonnement, sans compte, sans collecte de donn&eacute;es.</p>
+</header>
+
+<h2>Ce que fait PlotZone</h2>
 
 <div class="grille">
   <div>
