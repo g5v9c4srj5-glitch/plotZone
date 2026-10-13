@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <link rel="icon" href="icone.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PlotZone, tactical plotting</title>
-<meta name="description" content="Tactical plotting tool: plot points, Bull&rsquo;s Eye bearings, MGRS and UTM conversion, the MGRS and GARS grids, zone drawing and offline maps. No data collected.">
+<title>PlotZone, MGRS and UTM plotter</title>
+<meta name="description" content="Plot points, read MGRS and UTM, work out Bull&rsquo;s Eye bearings, draw zones and load your own airspace files. Works with no connection. Nothing is collected, and nothing leaves your device.">
 <style>
 * { box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -22,12 +22,14 @@ strong { color: #D4C9A8; }
 a { color: #D89838; }
 .ecrans { display: flex; gap: 18px; margin: 32px 0 8px; overflow-x: auto; padding-bottom: 8px; }
 .ecrans figure { margin: 0; flex: 0 0 220px; }
-.ecrans img { width: 100%; border-radius: 12px; border: 1px solid #3A403A; display: block; }
+.ecrans img { width: 100%; height: auto; border-radius: 12px; border: 1px solid #3A403A; display: block; }
 .ecrans figcaption { color: #8A8574; font-size: 0.82em; letter-spacing: 1px;
   text-transform: uppercase; margin-top: 10px; text-align: center; }
 .grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 26px 34px; }
 .grille h3 { color: #D4C9A8; font-size: 1em; margin: 0 0 4px; letter-spacing: 0.5px; }
 .grille p { margin: 0; font-size: 0.95em; }
+.pour { color: #8A8574; font-size: 0.95em; margin: 0 0 4px; }
+.achat strong { color: #D89838; font-size: 1.08em; letter-spacing: 0.5px; }
 .confid { border: 1px solid #3A403A; border-radius: 8px; padding: 22px 26px; margin-top: 20px; }
 .confid p { margin: 0; }
 .liens { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
@@ -63,12 +65,15 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   <div class="titre"><img src="icone.png" alt="">
     <h1>PLOTZONE</h1>
   </div>
-  <p class="accroche">Tactical plotting. Nothing leaves your device.</p>
+  <p class="accroche">Plot. Measure. Pass it on. Nothing leaves your device.</p>
   <p class="intro">Plot points, work out Bull&rsquo;s Eye bearings, convert coordinates between five
   formats, draw your zones, read the MGRS and GARS grids, and load your own airspace files and
   offline maps, all on a satellite map, or on your own, with no account and no data collection.</p>
+  <p class="pour">Built for drone pilots, glider and free-flight pilots, search and rescue teams,
+  surveyors and military personnel.</p>
   <a class="appstore" href="https://apps.apple.com/app/id6806763132">Download on the App Store</a>
-  <p class="achat">One-time purchase. No subscription, no account, no data collected.</p>
+  <p class="achat"><strong>$8.99, once.</strong> That is the price in the United States; Apple sets
+  the matching tier elsewhere. No subscription, no in-app purchase, no account, no data collected.</p>
 </header>
 
 <div class="langnav">
@@ -153,6 +158,38 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   </div>
 </div>
 
+<h2>Works with no connection</h2>
+
+<div class="confid">
+  <p>Every computation runs on the device: conversions, bearings, distances, the MGRS and GARS
+  grids, your missions, your zones and the airspace files you have loaded. None of it needs a link.
+  <strong>The one thing that does is Apple&rsquo;s satellite imagery</strong>, which will not load
+  over a sector you have never opened. Import your own map in MBTiles format and that goes too: the
+  tiles live on the device, and the sector reads with nothing at all.</p>
+</div>
+
+<h2>Why you can trust the coordinates</h2>
+
+<div class="confid">
+  <p>A wrong coordinate is paid for on the ground, so the conversions are checked rather than
+  claimed. <strong>They were measured against proj4js/mgrs 2.2.0, the most widely used MGRS
+  library, on 160,000 randomly drawn positions</strong>, including the Norway and Svalbard
+  grid-zone exceptions, the antimeridian, the equator and the southern band edges. Grid zones and
+  letters matched everywhere, and reading gave three one-metre discrepancies out of the 160,000,
+  which is arithmetic noise far from the central meridian. <strong>353 of those reference points are
+  frozen in the test suite</strong>, so any drift away from what another application would show
+  fails the build. Digits are truncated, never rounded, as the NGA and FM 3-25.26 require, and a
+  coordinate you type comes back out identical.</p>
+</div>
+
+<h2>Who writes it</h2>
+
+<div class="confid">
+  <p>PlotZone is written by <strong>C&eacute;dric Provost, a flight safety officer and drone sensor
+  operator</strong>, for the mission preparation he does himself. It is published independently,
+  with no company and no investor behind it, which is also why it asks for nothing and sends nothing.</p>
+</div>
+
 <h2>Privacy</h2>
 
 <div class="confid">
@@ -192,8 +229,12 @@ certified navigation instrument.</p>
 coordonn&eacute;es entre cinq formats, tracez vos zones, lisez les carroyages MGRS et GARS, chargez
 vos propres espaces a&eacute;riens et vos cartes hors ligne, le tout sur une carte satellite, ou sur la
 v&ocirc;tre, sans compte et sans collecte de donn&eacute;es.</p>
+  <p class="pour">Con&ccedil;ue pour les pilotes de drone, les v&eacute;livoles et pilotes de vol libre,
+  les &eacute;quipes de recherche et de secours, les topographes et les personnels militaires.</p>
   <a class="appstore" href="https://apps.apple.com/app/id6806763132">T&eacute;l&eacute;charger sur l&rsquo;App Store</a>
-  <p class="achat">Achat unique. Sans abonnement, sans compte, sans collecte de donn&eacute;es.</p>
+  <p class="achat"><strong>9,99 &euro;, une fois.</strong> Apple applique le palier correspondant
+  dans les autres boutiques. Sans abonnement, sans achat int&eacute;gr&eacute;, sans compte, sans
+  collecte de donn&eacute;es.</p>
 </header>
 
 <div class="ecrans">
@@ -270,6 +311,46 @@ v&ocirc;tre, sans compte et sans collecte de donn&eacute;es.</p>
     <h3>Import et export</h3>
     <p>Exportez une mission pour la sauvegarder ou la transmettre, puis r&eacute;importez-la sans rien perdre. Huit formats, du PlotZone (.json) &agrave; la fiche texte avec l&rsquo;itin&eacute;raire branche par branche, plus le CSV, le GPX, le KML, le KMZ, le GeoJSON et l&rsquo;OpenAir.</p>
   </div>
+</div>
+
+<h2>Hors ligne</h2>
+
+<div class="confid">
+  <p>Tous les calculs se font sur l&rsquo;appareil&nbsp;: conversions, rel&egrave;vements, distances,
+  carroyages MGRS et GARS, vos missions, vos zones et les espaces a&eacute;riens que vous avez
+  charg&eacute;s. Rien de tout cela ne demande de r&eacute;seau.
+  <strong>La seule chose qui en demande est l&rsquo;imagerie satellite d&rsquo;Apple</strong>, qui ne
+  s&rsquo;affichera pas sur un secteur que vous n&rsquo;avez jamais ouvert. Importez votre propre
+  carte au format MBTiles et cette d&eacute;pendance dispara&icirc;t aussi&nbsp;: les tuiles sont sur
+  l&rsquo;appareil, et le secteur se lit sans rien.</p>
+</div>
+
+<h2>Pourquoi vous pouvez vous fier aux coordonn&eacute;es</h2>
+
+<div class="confid">
+  <p>Une coordonn&eacute;e fausse se paie sur le terrain&nbsp;: les conversions sont donc
+  v&eacute;rifi&eacute;es, et pas seulement affirm&eacute;es.
+  <strong>Elles ont &eacute;t&eacute; confront&eacute;es &agrave; proj4js/mgrs 2.2.0, la
+  biblioth&egrave;que MGRS la plus r&eacute;pandue, sur 160&nbsp;000 positions tir&eacute;es au
+  hasard</strong>, exceptions de fuseau de la Norv&egrave;ge et du Svalbard, antim&eacute;ridien,
+  &eacute;quateur et bords de bandes australes compris. Les zones et les lettres concordaient
+  partout, et la lecture donnait trois &eacute;carts d&rsquo;un m&egrave;tre sur les
+  160&nbsp;000, bruit de calcul loin du m&eacute;ridien central.
+  <strong>353 de ces points de r&eacute;f&eacute;rence sont fig&eacute;s dans la s&eacute;rie de
+  tests</strong>&nbsp;: tout &eacute;cart avec ce qu&rsquo;afficherait une autre application fait
+  &eacute;chouer la construction. Les chiffres sont tronqu&eacute;s et jamais arrondis, comme
+  l&rsquo;exigent la NGA et le FM 3-25.26, et une coordonn&eacute;e que vous saisissez se
+  r&eacute;affiche &agrave; l&rsquo;identique.</p>
+</div>
+
+<h2>Qui l&rsquo;&eacute;crit</h2>
+
+<div class="confid">
+  <p>PlotZone est &eacute;crite par <strong>C&eacute;dric Provost, officier s&eacute;curit&eacute; des
+  vols et op&eacute;rateur capteur de drone</strong>, pour la pr&eacute;paration de mission qu&rsquo;il
+  fait lui-m&ecirc;me. Elle est publi&eacute;e en ind&eacute;pendant, sans soci&eacute;t&eacute; ni
+  investisseur derri&egrave;re elle, ce qui est aussi la raison pour laquelle elle ne demande rien et
+  n&rsquo;envoie rien.</p>
 </div>
 
 <h2>Confidentialit&eacute;</h2>
