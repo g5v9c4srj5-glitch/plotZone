@@ -20,6 +20,10 @@ h2 { font-size: 1.05em; letter-spacing: 2px; color: #7A8450; text-transform: upp
 p, li { color: #B8B09A; }
 strong { color: #D4C9A8; }
 a { color: #D89838; }
+.bande { position: relative; }
+.bande::after { content: ""; position: absolute; top: 0; right: 0; bottom: 22px; width: 64px;
+  background: linear-gradient(to right, rgba(26, 29, 26, 0), #1A1D1A 88%);
+  pointer-events: none; }
 .ecrans { display: flex; gap: 18px; margin: 32px 0 8px; overflow-x: auto; padding-bottom: 14px;
   scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: #7A8450 #23261F; }
 .ecrans::-webkit-scrollbar { height: 8px; }
@@ -87,6 +91,7 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
   <a href="#fr">Fran&ccedil;ais</a>
 </div>
 
+<div class="bande">
 <div class="ecrans" tabindex="0" role="group"
   aria-label="Five screens of the application. Scroll sideways to see them all.">
   <figure>
@@ -109,6 +114,7 @@ footer { border-top: 1px solid #3A403A; margin-top: 60px; padding-top: 20px;
     <img src="ecran-5.jpg" width="640" height="1391" loading="lazy" alt="The settings screen, showing the coordinate format, the geodetic datum, the reference north and the declination">
     <figcaption>Settings</figcaption>
   </figure>
+</div>
 </div>
 
 <h2>What PlotZone does</h2>
@@ -243,6 +249,7 @@ v&ocirc;tre, sans compte et sans collecte de donn&eacute;es.</p>
   collecte de donn&eacute;es.</p>
 </header>
 
+<div class="bande">
 <div class="ecrans" tabindex="0" role="group"
   aria-label="Cinq &eacute;crans de l&rsquo;application. Faites glisser pour les voir tous.">
   <figure>
@@ -265,6 +272,7 @@ v&ocirc;tre, sans compte et sans collecte de donn&eacute;es.</p>
     <img src="ecran-fr-5.jpg" width="640" height="1391" loading="lazy" alt="L&rsquo;&eacute;cran des r&eacute;glages, avec le format de coordonn&eacute;es, le syst&egrave;me g&eacute;od&eacute;sique, le nord de r&eacute;f&eacute;rence et la d&eacute;clinaison">
     <figcaption>R&eacute;glages</figcaption>
   </figure>
+</div>
 </div>
 
 <h2>Ce que fait PlotZone</h2>
